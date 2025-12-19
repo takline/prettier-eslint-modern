@@ -1,0 +1,269 @@
+(base) Mac-mini:vs-code-prettier-eslint tylerkline$ bun vsce publish
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> prettier-eslint-modern@1.0.0 vscode:prepublish
+> bun run build
+
+$ bun run build:extension --minify && bun run build:worker --minify
+$ esbuild ./src/extension.ts --bundle --sourcemap --platform=node --target=node18 --external:vscode --external:./worker.mjs --outfile=./dist/extension.js --minify
+
+  dist/extension.js      13.2kb
+  dist/extension.js.map  67.6kb
+
+⚡ Done in 17ms
+$ esbuild ./src/worker.ts --bundle --sourcemap --platform=node --format=esm --target=node18 --banner:js="import { createRequire } from 'module'; import { fileURLToPath } from 'url'; import { dirname } from 'path'; const require = createRequire(import.meta.url); const __filename = fileURLToPath(import.meta.url); const __dirname = dirname(__filename);" --outfile=./dist/worker.mjs --minify
+
+  dist/worker.mjs       5.0mb ⚠️
+  dist/worker.mjs.map  15.4mb
+
+⚡ Done in 169ms
+ ERROR  Command failed: npm list --production --parseable --depth=99999 --loglevel=error
+npm error code ELSPROBLEMS
+npm error extraneous: @babel/compat-data@7.28.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/compat-data
+npm error extraneous: @babel/core@7.28.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/core
+npm error extraneous: @babel/generator@7.28.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/generator
+npm error extraneous: @babel/helper-compilation-targets@7.27.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helper-compilation-targets
+npm error extraneous: @babel/helper-globals@7.28.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helper-globals
+npm error extraneous: @babel/helper-module-imports@7.27.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helper-module-imports
+npm error extraneous: @babel/helper-module-transforms@7.28.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helper-module-transforms
+npm error extraneous: @babel/helper-plugin-utils@7.27.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helper-plugin-utils
+npm error extraneous: @babel/helper-string-parser@7.27.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helper-string-parser
+npm error extraneous: @babel/helper-validator-option@7.27.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helper-validator-option
+npm error extraneous: @babel/helpers@7.28.4 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helpers
+npm error extraneous: @babel/parser@7.28.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/parser
+npm error extraneous: @babel/plugin-syntax-async-generators@7.8.4 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-async-generators
+npm error extraneous: @babel/plugin-syntax-bigint@7.8.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-bigint
+npm error extraneous: @babel/plugin-syntax-class-properties@7.12.13 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-class-properties
+npm error extraneous: @babel/plugin-syntax-class-static-block@7.14.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-class-static-block
+npm error extraneous: @babel/plugin-syntax-import-attributes@7.27.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-import-attributes
+npm error extraneous: @babel/plugin-syntax-import-meta@7.10.4 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-import-meta
+npm error extraneous: @babel/plugin-syntax-json-strings@7.8.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-json-strings
+npm error extraneous: @babel/plugin-syntax-jsx@7.27.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-jsx
+npm error extraneous: @babel/plugin-syntax-logical-assignment-operators@7.10.4 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-logical-assignment-operators
+npm error extraneous: @babel/plugin-syntax-nullish-coalescing-operator@7.8.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-nullish-coalescing-operator
+npm error extraneous: @babel/plugin-syntax-numeric-separator@7.10.4 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-numeric-separator
+npm error extraneous: @babel/plugin-syntax-object-rest-spread@7.8.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-object-rest-spread
+npm error extraneous: @babel/plugin-syntax-optional-catch-binding@7.8.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-optional-catch-binding
+npm error extraneous: @babel/plugin-syntax-optional-chaining@7.8.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-optional-chaining
+npm error extraneous: @babel/plugin-syntax-private-property-in-object@7.14.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-private-property-in-object
+npm error extraneous: @babel/plugin-syntax-top-level-await@7.14.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-top-level-await
+npm error extraneous: @babel/plugin-syntax-typescript@7.27.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/plugin-syntax-typescript
+npm error extraneous: @babel/template@7.27.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/template
+npm error extraneous: @babel/traverse@7.28.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/traverse
+npm error extraneous: @babel/types@7.28.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/types
+npm error extraneous: @bcoe/v8-coverage@0.2.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@bcoe/v8-coverage
+npm error extraneous: @istanbuljs/load-nyc-config@1.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@istanbuljs/load-nyc-config
+npm error extraneous: @istanbuljs/schema@0.1.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@istanbuljs/schema
+npm error extraneous: @jest/console@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/console
+npm error extraneous: @jest/core@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/core
+npm error extraneous: @jest/diff-sequences@30.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/diff-sequences
+npm error extraneous: @jest/environment@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/environment
+npm error extraneous: @jest/expect-utils@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/expect-utils
+npm error extraneous: @jest/expect@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/expect
+npm error extraneous: @jest/fake-timers@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/fake-timers
+npm error extraneous: @jest/get-type@30.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/get-type
+npm error extraneous: @jest/globals@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/globals
+npm error extraneous: @jest/pattern@30.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/pattern
+npm error extraneous: @jest/reporters@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/reporters
+npm error extraneous: @jest/schemas@29.6.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/schemas
+npm error extraneous: @jest/snapshot-utils@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/snapshot-utils
+npm error extraneous: @jest/source-map@30.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/source-map
+npm error extraneous: @jest/test-result@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/test-result
+npm error extraneous: @jest/test-sequencer@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/test-sequencer
+npm error extraneous: @jest/transform@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/transform
+npm error extraneous: @jest/types@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/types
+npm error extraneous: @jridgewell/gen-mapping@0.3.13 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jridgewell/gen-mapping
+npm error extraneous: @jridgewell/remapping@2.3.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jridgewell/remapping
+npm error extraneous: @pkgr/core@0.2.9 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@pkgr/core
+npm error extraneous: @sinclair/typebox@0.27.8 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@sinclair/typebox
+npm error extraneous: @sinonjs/commons@3.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@sinonjs/commons
+npm error extraneous: @sinonjs/fake-timers@13.0.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@sinonjs/fake-timers
+npm error extraneous: @types/babel__core@7.20.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@types/babel__core
+npm error extraneous: @types/babel__generator@7.27.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@types/babel__generator
+npm error extraneous: @types/babel__template@7.4.4 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@types/babel__template
+npm error extraneous: @types/babel__traverse@7.28.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@types/babel__traverse
+npm error extraneous: @types/istanbul-lib-coverage@2.0.6 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@types/istanbul-lib-coverage
+npm error extraneous: @types/istanbul-lib-report@3.0.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@types/istanbul-lib-report
+npm error extraneous: @types/istanbul-reports@3.0.4 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@types/istanbul-reports
+npm error extraneous: @types/stack-utils@2.0.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@types/stack-utils
+npm error extraneous: @types/yargs-parser@21.0.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@types/yargs-parser
+npm error extraneous: @types/yargs@17.0.35 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@types/yargs
+npm error extraneous: @unrs/resolver-binding-darwin-arm64@1.11.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@unrs/resolver-binding-darwin-arm64
+npm error extraneous: anymatch@3.1.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/anymatch
+npm error extraneous: babel-jest@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/babel-jest
+npm error extraneous: babel-plugin-istanbul@7.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/babel-plugin-istanbul
+npm error extraneous: babel-plugin-jest-hoist@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/babel-plugin-jest-hoist
+npm error extraneous: babel-preset-current-node-syntax@1.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/babel-preset-current-node-syntax
+npm error extraneous: babel-preset-jest@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/babel-preset-jest
+npm error extraneous: baseline-browser-mapping@2.9.11 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/baseline-browser-mapping
+npm error extraneous: browserslist@4.28.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/browserslist
+npm error extraneous: bser@2.1.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/bser
+npm error extraneous: caniuse-lite@1.0.30001761 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/caniuse-lite
+npm error extraneous: char-regex@1.0.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/char-regex
+npm error invalid: ci-info@2.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/ci-info
+npm error extraneous: ci-info@2.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/ci-info
+npm error extraneous: cjs-module-lexer@2.1.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/cjs-module-lexer
+npm error extraneous: co@4.6.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/co
+npm error extraneous: collect-v8-coverage@1.0.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/collect-v8-coverage
+npm error extraneous: convert-source-map@2.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/convert-source-map
+npm error extraneous: detect-newline@3.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/detect-newline
+npm error extraneous: electron-to-chromium@1.5.267 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/electron-to-chromium
+npm error extraneous: emittery@0.13.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/emittery
+npm error extraneous: esprima@4.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/esprima
+npm error extraneous: exit-x@0.2.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/exit-x
+npm error extraneous: expect@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/expect
+npm error extraneous: fb-watchman@2.0.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/fb-watchman
+npm error extraneous: fsevents@2.3.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/fsevents
+npm error extraneous: gensync@1.0.0-beta.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/gensync
+npm error extraneous: get-package-type@0.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/get-package-type
+npm error extraneous: html-escaper@2.0.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/html-escaper
+npm error extraneous: import-local@3.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/import-local
+npm error extraneous: is-generator-fn@2.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/is-generator-fn
+npm error extraneous: istanbul-lib-coverage@3.2.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/istanbul-lib-coverage
+npm error extraneous: istanbul-lib-instrument@6.0.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/istanbul-lib-instrument
+npm error extraneous: istanbul-lib-report@3.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/istanbul-lib-report
+npm error extraneous: istanbul-lib-source-maps@5.0.6 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/istanbul-lib-source-maps
+npm error extraneous: istanbul-reports@3.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/istanbul-reports
+npm error extraneous: jest-changed-files@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-changed-files
+npm error extraneous: jest-circus@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-circus
+npm error extraneous: jest-cli@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli
+npm error extraneous: jest-config@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-config
+npm error extraneous: jest-diff@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-diff
+npm error extraneous: jest-docblock@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-docblock
+npm error extraneous: jest-each@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-each
+npm error extraneous: jest-haste-map@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-haste-map
+npm error extraneous: jest-leak-detector@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-leak-detector
+npm error extraneous: jest-matcher-utils@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-matcher-utils
+npm error extraneous: jest-message-util@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-message-util
+npm error extraneous: jest-mock@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-mock
+npm error extraneous: jest-pnp-resolver@1.2.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-pnp-resolver
+npm error extraneous: jest-regex-util@30.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-regex-util
+npm error extraneous: jest-resolve-dependencies@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-resolve-dependencies
+npm error extraneous: jest-resolve@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-resolve
+npm error extraneous: jest-runner@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-runner
+npm error extraneous: jest-runtime@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-runtime
+npm error extraneous: jest-snapshot@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-snapshot
+npm error extraneous: jest-util@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-util
+npm error extraneous: jest-validate@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-validate
+npm error extraneous: jest-watcher@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-watcher
+npm error extraneous: jest-worker@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-worker
+npm error extraneous: jsesc@3.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jsesc
+npm error extraneous: make-dir@4.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/make-dir
+npm error extraneous: makeerror@1.0.12 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/makeerror
+npm error extraneous: napi-postinstall@0.3.4 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/napi-postinstall
+npm error extraneous: node-int64@0.4.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/node-int64
+npm error extraneous: node-releases@2.0.27 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/node-releases
+npm error extraneous: normalize-path@3.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/normalize-path
+npm error invalid: p-limit@4.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/p-limit
+npm error extraneous: p-limit@4.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/p-limit
+npm error invalid: picomatch@2.3.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/picomatch
+npm error extraneous: picomatch@2.3.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/picomatch
+npm error extraneous: pirates@4.0.7 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/pirates
+npm error extraneous: pkg-dir@4.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/pkg-dir
+npm error extraneous: pure-rand@7.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/pure-rand
+npm error extraneous: resolve-cwd@3.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/resolve-cwd
+npm error invalid: slash@5.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/slash
+npm error extraneous: slash@5.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/slash
+npm error invalid: source-map-support@0.5.21 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/source-map-support
+npm error extraneous: source-map-support@0.5.21 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/source-map-support
+npm error extraneous: stack-utils@2.0.6 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/stack-utils
+npm error extraneous: string-length@4.0.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/string-length
+npm error invalid: strip-bom@3.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/strip-bom
+npm error extraneous: strip-bom@3.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/strip-bom
+npm error extraneous: synckit@0.11.11 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/synckit
+npm error extraneous: test-exclude@6.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/test-exclude
+npm error extraneous: tmpl@1.0.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/tmpl
+npm error extraneous: type-detect@4.0.8 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/type-detect
+npm error extraneous: unrs-resolver@1.11.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/unrs-resolver
+npm error extraneous: update-browserslist-db@1.2.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/update-browserslist-db
+npm error extraneous: v8-to-istanbul@9.3.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/v8-to-istanbul
+npm error extraneous: walker@1.0.8 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/walker
+npm error extraneous: write-file-atomic@5.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/write-file-atomic
+npm error extraneous: yocto-queue@1.2.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/yocto-queue
+npm error extraneous: semver@6.3.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/core/node_modules/semver
+npm error extraneous: @jridgewell/trace-mapping@0.3.31 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/generator/node_modules/@jridgewell/trace-mapping
+npm error extraneous: lru-cache@5.1.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helper-compilation-targets/node_modules/lru-cache
+npm error extraneous: semver@6.3.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helper-compilation-targets/node_modules/semver
+npm error extraneous: camelcase@5.3.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@istanbuljs/load-nyc-config/node_modules/camelcase
+npm error extraneous: find-up@4.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@istanbuljs/load-nyc-config/node_modules/find-up
+npm error extraneous: js-yaml@3.14.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml
+npm error extraneous: pretty-format@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/core/node_modules/pretty-format
+npm error extraneous: @jridgewell/trace-mapping@0.3.31 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/reporters/node_modules/@jridgewell/trace-mapping
+npm error extraneous: glob@10.5.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/reporters/node_modules/glob
+npm error extraneous: @jridgewell/trace-mapping@0.3.31 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/source-map/node_modules/@jridgewell/trace-mapping
+npm error extraneous: @jridgewell/trace-mapping@0.3.31 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/transform/node_modules/@jridgewell/trace-mapping
+npm error invalid: @jest/schemas@29.6.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/schemas
+npm error extraneous: @jridgewell/trace-mapping@0.3.31 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jridgewell/gen-mapping/node_modules/@jridgewell/trace-mapping
+npm error extraneous: @jridgewell/trace-mapping@0.3.31 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jridgewell/remapping/node_modules/@jridgewell/trace-mapping
+npm error extraneous: picomatch@2.3.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/anymatch/node_modules/picomatch
+npm error invalid: supports-color@8.1.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/supports-color
+npm error extraneous: @jridgewell/trace-mapping@0.3.31 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/istanbul-lib-source-maps/node_modules/@jridgewell/trace-mapping
+npm error extraneous: dedent@1.7.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-circus/node_modules/dedent
+npm error extraneous: pretty-format@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-circus/node_modules/pretty-format
+npm error extraneous: yargs@17.7.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs
+npm error extraneous: glob@10.5.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-config/node_modules/glob
+npm error missing: jest-environment-node@30.2.0, required by jest-config@30.2.0
+npm error extraneous: pretty-format@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-config/node_modules/pretty-format
+npm error extraneous: pretty-format@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-diff/node_modules/pretty-format
+npm error extraneous: pretty-format@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-each/node_modules/pretty-format
+npm error extraneous: pretty-format@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-leak-detector/node_modules/pretty-format
+npm error extraneous: pretty-format@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-matcher-utils/node_modules/pretty-format
+npm error extraneous: pretty-format@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-message-util/node_modules/pretty-format
+npm error missing: jest-environment-node@30.2.0, required by jest-runner@30.2.0
+npm error extraneous: glob@10.5.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-runtime/node_modules/glob
+npm error extraneous: pretty-format@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-snapshot/node_modules/pretty-format
+npm error extraneous: pretty-format@30.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-validate/node_modules/pretty-format
+npm error extraneous: supports-color@8.1.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-worker/node_modules/supports-color
+npm error extraneous: find-up@4.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/pkg-dir/node_modules/find-up
+npm error extraneous: escape-string-regexp@2.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/stack-utils/node_modules/escape-string-regexp
+npm error extraneous: strip-ansi@6.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/string-length/node_modules/strip-ansi
+npm error extraneous: glob@7.2.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/test-exclude/node_modules/glob
+npm error extraneous: @jridgewell/trace-mapping@0.3.31 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/v8-to-istanbul/node_modules/@jridgewell/trace-mapping
+npm error extraneous: yallist@3.1.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@babel/helper-compilation-targets/node_modules/lru-cache/node_modules/yallist
+npm error extraneous: locate-path@5.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@istanbuljs/load-nyc-config/node_modules/find-up/node_modules/locate-path
+npm error extraneous: argparse@1.0.10 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml/node_modules/argparse
+npm error extraneous: ansi-styles@5.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/core/node_modules/pretty-format/node_modules/ansi-styles
+npm error extraneous: jackspeak@3.4.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/reporters/node_modules/glob/node_modules/jackspeak
+npm error extraneous: minimatch@9.0.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/reporters/node_modules/glob/node_modules/minimatch
+npm error extraneous: path-scurry@1.11.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/reporters/node_modules/glob/node_modules/path-scurry
+npm error extraneous: ansi-styles@5.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-circus/node_modules/pretty-format/node_modules/ansi-styles
+npm error extraneous: cliui@8.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs/node_modules/cliui
+npm error extraneous: string-width@4.2.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs/node_modules/string-width
+npm error extraneous: y18n@5.0.8 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs/node_modules/y18n
+npm error extraneous: yargs-parser@21.1.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs/node_modules/yargs-parser
+npm error extraneous: jackspeak@3.4.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-config/node_modules/glob/node_modules/jackspeak
+npm error extraneous: minimatch@9.0.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-config/node_modules/glob/node_modules/minimatch
+npm error extraneous: path-scurry@1.11.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-config/node_modules/glob/node_modules/path-scurry
+npm error extraneous: ansi-styles@5.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-config/node_modules/pretty-format/node_modules/ansi-styles
+npm error extraneous: ansi-styles@5.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-diff/node_modules/pretty-format/node_modules/ansi-styles
+npm error extraneous: ansi-styles@5.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-each/node_modules/pretty-format/node_modules/ansi-styles
+npm error extraneous: ansi-styles@5.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-leak-detector/node_modules/pretty-format/node_modules/ansi-styles
+npm error extraneous: ansi-styles@5.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-matcher-utils/node_modules/pretty-format/node_modules/ansi-styles
+npm error extraneous: ansi-styles@5.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-message-util/node_modules/pretty-format/node_modules/ansi-styles
+npm error extraneous: jackspeak@3.4.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-runtime/node_modules/glob/node_modules/jackspeak
+npm error extraneous: minimatch@9.0.5 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-runtime/node_modules/glob/node_modules/minimatch
+npm error extraneous: path-scurry@1.11.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-runtime/node_modules/glob/node_modules/path-scurry
+npm error extraneous: ansi-styles@5.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-snapshot/node_modules/pretty-format/node_modules/ansi-styles
+npm error extraneous: ansi-styles@5.2.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-validate/node_modules/pretty-format/node_modules/ansi-styles
+npm error extraneous: locate-path@5.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path
+npm error extraneous: ansi-regex@5.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/string-length/node_modules/strip-ansi/node_modules/ansi-regex
+npm error extraneous: p-locate@4.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@istanbuljs/load-nyc-config/node_modules/find-up/node_modules/locate-path/node_modules/p-locate
+npm error extraneous: brace-expansion@2.0.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/reporters/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion
+npm error extraneous: lru-cache@10.4.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@jest/reporters/node_modules/glob/node_modules/path-scurry/node_modules/lru-cache
+npm error extraneous: strip-ansi@6.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs/node_modules/cliui/node_modules/strip-ansi
+npm error extraneous: wrap-ansi@7.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs/node_modules/cliui/node_modules/wrap-ansi
+npm error extraneous: emoji-regex@8.0.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs/node_modules/string-width/node_modules/emoji-regex
+npm error extraneous: strip-ansi@6.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs/node_modules/string-width/node_modules/strip-ansi
+npm error extraneous: brace-expansion@2.0.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-config/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion
+npm error extraneous: lru-cache@10.4.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-config/node_modules/glob/node_modules/path-scurry/node_modules/lru-cache
+npm error extraneous: brace-expansion@2.0.2 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-runtime/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion
+npm error extraneous: lru-cache@10.4.3 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-runtime/node_modules/glob/node_modules/path-scurry/node_modules/lru-cache
+npm error extraneous: p-locate@4.1.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path/node_modules/p-locate
+npm error extraneous: p-limit@2.3.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/@istanbuljs/load-nyc-config/node_modules/find-up/node_modules/locate-path/node_modules/p-locate/node_modules/p-limit
+npm error extraneous: ansi-regex@5.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs/node_modules/cliui/node_modules/strip-ansi/node_modules/ansi-regex
+npm error extraneous: ansi-regex@5.0.1 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/jest-cli/node_modules/yargs/node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex
+npm error extraneous: p-limit@2.3.0 /Users/tylerkline/offline-coding/index/vs-code-prettier-eslint/node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path/node_modules/p-locate/node_modules/p-limit
+npm error A complete log of this run can be found in: /Users/tylerkline/.npm/_logs/2025-12-19T16_43_57_326Z-debug-0.log
+
+error: "vsce" exited with code 1
+(base) Mac-mini:vs-code-prettier-eslint tylerkline$

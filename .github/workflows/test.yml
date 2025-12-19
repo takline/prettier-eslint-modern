@@ -16,10 +16,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-      - run: bun install
+      - run: npm ci
       - run: bun run build
       - run: xvfb-run -a bun run test
         if: runner.os == 'Linux'
