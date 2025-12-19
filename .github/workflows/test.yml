@@ -10,18 +10,16 @@ jobs:
   build:
     strategy:
       matrix:
-        # os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
         os: ["ubuntu-latest"]
 
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 16.x
-          cache: "yarn"
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: xvfb-run -a yarn test
+          bun-version: latest
+      - run: bun install
+      - run: bun run build
+      - run: xvfb-run -a bun run test
         if: runner.os == 'Linux'

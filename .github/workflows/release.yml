@@ -6,21 +6,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 16
-      - uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: yarn-deps-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            yarn-deps-${{ hashFiles('yarn.lock') }}
+          bun-version: latest
       - run: |
-          yarn install --frozen-lockfile
+          bun install
           git fetch --tags
           npx auto shipit
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-          OVSX_PAT: ${{ secrets.OVSX_PAT }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

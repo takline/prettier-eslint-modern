@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{ "path": "project" },
+		{ "path": "workspace" },
+		{ "path": "eslint" },
+		{ "path": "tslint" },
+		{ "path": "stylelint" }
+	],
+	"settings": {
+		"editor.defaultFormatter": "takline.prettier-eslint-modern",
+		"[javascript]": {
+			"editor.defaultFormatter": "takline.prettier-eslint-modern"
+		},
+		"[typescript]": {
+			"editor.defaultFormatter": "takline.prettier-eslint-modern"
+		},
+		"[css]": {
+			"editor.defaultFormatter": "takline.prettier-eslint-modern"
+		},
+		"[html]": {
+			"editor.defaultFormatter": "takline.prettier-eslint-modern"
+		},
+		"[json]": {
+			"editor.defaultFormatter": "takline.prettier-eslint-modern"
+		},
+		"[graphql]": {
+			"editor.defaultFormatter": "takline.prettier-eslint-modern"
+		},
+		"[vue]": {
+			"editor.defaultFormatter": "takline.prettier-eslint-modern"
+		}
+	}
+}

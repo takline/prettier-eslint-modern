@@ -1,31 +1,43 @@
 {
-  "publisher": "rvest",
-  "name": "vs-code-prettier-eslint",
-  "displayName": "Prettier ESLint",
-  "description": "A Visual Studio Extension to format JavaScript and Typescript code using prettier-eslint package",
+  "publisher": "takline",
+  "name": "prettier-eslint-modern",
+  "displayName": "Prettier ESLint Modern",
+  "version": "1.0.0",
+  "description": "A fork of vs-code-prettier-eslint focused on compatibility with newer toolchains and improved reliability.",
   "license": "MIT",
-  "author": "Rebecca Vest <olserebe@hotmail.com>",
+  "author": "takline",
   "icon": "icon.png",
+	"galleryBanner": {
+		"color": "#09090b",
+		"theme": "dark"
+	},
   "keywords": [
     "eslint",
     "prettier",
     "prettier-eslint",
-    "multi-root ready"
+    "multi-root ready",
+    "flat-config",
+    "modern"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/idahogurl/vs-code-prettier-eslint"
+    "url": "https://github.com/takline/prettier-eslint-modern"
   },
-  "version": "6.0.0",
+	"bugs": {
+		"url": "https://github.com/takline/prettier-eslint-modern/issues"
+	},
   "engines": {
-    "vscode": "^1.63.0",
-    "node": "^16.13.0"
+    "vscode": "^1.93.0",
+    "node": "^20.0.0"
   },
+	"extensionKind": [
+		"workspace"
+	],
   "categories": [
     "Formatters"
   ],
   "sponsor": {
-    "url": "https://github.com/sponsors/idahogurl"
+    "url": "https://github.com/sponsors/takline"
   },
   "main": "./dist/extension.js",
   "activationEvents": [
@@ -48,69 +60,57 @@
     "onStartupFinished"
   ],
   "scripts": {
-    "lint": "eslint . --ignore-pattern test/fixtures/",
-    "pretest": "yarn lint",
-    "test": "node ./test/runTest.js",
-    "test:update": "SNAPSHOT_UPDATE=true node ./test/runTest.js",
-    "build:dev": "yarn build:extension && yarn build:worker",
-    "build": "yarn build:extension --minify && yarn build:worker --minify",
-    "build:extension": "esbuild ./src/extension.js --bundle --sourcemap --platform=node --target=node16 --external:vscode --external:./worker.mjs --outfile=./dist/extension.js",
-    "build:worker": "esbuild ./src/worker.mjs --bundle --sourcemap --platform=node --format=esm --target=node16 --outfile=./dist/worker.mjs",
-    "package:dev": "yarn build:dev && vsce package",
-    "package": "yarn build && vsce package",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "pretest": "bun run lint && bun run typecheck",
+    "test": "tsc -p . && node ./dist/test/runTest.js",
+    "build:dev": "bun run build:extension && bun run build:worker",
+    "build": "bun run build:extension --minify && bun run build:worker --minify",
+    "build:extension": "esbuild ./src/extension.ts --bundle --sourcemap --platform=node --target=node18 --external:vscode --external:./worker.mjs --outfile=./dist/extension.js",
+    "build:worker": "esbuild ./src/worker.ts --bundle --sourcemap --platform=node --format=esm --target=node18 --banner:js=\"import { createRequire } from 'module'; import { fileURLToPath } from 'url'; import { dirname } from 'path'; const require = createRequire(import.meta.url); const __filename = fileURLToPath(import.meta.url); const __dirname = dirname(__filename);\" --outfile=./dist/worker.mjs",
+    "package:dev": "bun run build:dev && vsce package --no-dependencies",
+    "package": "bun run build && vsce package --no-dependencies",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
   "devDependencies": {
-    "@auto-it/exec": "^10.42.2",
-    "@auto-it/first-time-contributor": "^10.42.2",
-    "@auto-it/released": "^10.42.2",
-    "@auto-it/upload-assets": "^10.42.2",
-    "@auto-it/vscode": "^10.42.2",
-    "@types/node": "^18.14.2",
-    "@vscode/test-electron": "^2.2.3",
-    "all-contributors-cli": "^6.24.0",
-    "auto": "^10.42.2",
-    "esbuild": "^0.16.14",
-    "eslint": "^8.52.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^27.2.0",
-    "jest": "^29.3.1",
-    "jest-environment-node": "^29.3.1",
-    "ovsx": "^0.7.1",
-    "prettier": "^3.1.0",
-    "prettier-eslint": "^16.1.2",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.5",
-    "vsce": "^2.15.0"
+    "@auto-it/exec": "^11.3.6",
+    "@auto-it/first-time-contributor": "^11.3.6",
+    "@auto-it/released": "^11.3.6",
+    "@auto-it/upload-assets": "^11.3.6",
+    "@auto-it/vscode": "^11.3.6",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^25.0.3",
+    "@types/vscode": "^1.93.0",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.7.1",
+    "all-contributors-cli": "^6.26.1",
+    "auto": "^11.3.6",
+    "esbuild": "^0.27.2",
+    "glob": "^13.0.0",
+    "mocha": "^11.7.5",
+    "ovsx": "^0.10.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
-    "find-up": "^6.3.0",
-    "ignore": "^5.2.4",
-    "require-relative": "^0.8.7",
-    "synckit": "^0.9.0"
+    "eslint": "^9.39.2",
+    "find-up": "^8.0.0",
+    "ignore": "^7.0.5",
+    "prettier": "^3.7.4",
+    "prettier-eslint": "^16.4.2",
+    "require-relative": "^0.8.7"
   },
   "contributes": {
     "configuration": {
-      "title": "Prettier Eslint",
+      "title": "Prettier ESLint Modern",
       "properties": {
-        "vs-code-prettier-eslint.prettierLast": {
+        "prettier-eslint-modern.prettierLast": {
           "type": "boolean",
           "default": false,
           "description": "Run Prettier Last"
         }
       }
     }
-  },
-  "vsce": {
-    "dependencies": false,
-    "yarn": true
-  },
-  "__metadata": {
-    "id": "d4b06bd6-36a0-469f-be55-c0a73413b688",
-    "publisherDisplayName": "Rebecca Vest",
-    "publisherId": "b95e678b-a11b-44b4-b281-6b521c2005bc",
-    "isPreReleaseVersion": false
   }
 }
