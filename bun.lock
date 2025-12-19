@@ -4,14 +4,6 @@
   "workspaces": {
     "": {
       "name": "prettier-eslint-formatter-vscode",
-      "dependencies": {
-        "eslint": "^9.39.2",
-        "find-up": "^8.0.0",
-        "ignore": "^7.0.5",
-        "prettier": "^3.7.4",
-        "prettier-eslint": "^16.4.2",
-        "require-relative": "^0.8.7",
-      },
       "devDependencies": {
         "@auto-it/exec": "^11.3.6",
         "@auto-it/first-time-contributor": "^11.3.6",
@@ -26,9 +18,15 @@
         "all-contributors-cli": "^6.26.1",
         "auto": "^11.3.6",
         "esbuild": "^0.27.2",
+        "eslint": "^9.39.2",
+        "find-up": "^8.0.0",
         "glob": "^13.0.0",
+        "ignore": "^7.0.5",
         "mocha": "^11.7.5",
         "ovsx": "^0.10.7",
+        "prettier": "^3.7.4",
+        "prettier-eslint": "^16.4.2",
+        "require-relative": "^0.8.7",
         "ts-node": "^10.9.2",
         "typescript": "^5.9.3",
       },
