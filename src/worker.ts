@@ -52,6 +52,7 @@ async function format({
         const importedPrettier = await import(pathToFileURL(prettierPath).toString());
         prettier = importedPrettier.default || importedPrettier;
         if (logLevel === 'trace') log(`[Worker] Using local Prettier from '${prettierPath}'`);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
         if (logLevel === 'trace') log('[Worker] Using bundled Prettier (fallback)');
         prettier = bundledPrettier;
